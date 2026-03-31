@@ -15,7 +15,8 @@ export default function ContactForm() {
 
   const onSubmit = async (data) => {
     try {
-      const apiBaseUrl = import.meta.env.BASE_URL || "http://localhost:3000";
+      const apiBaseUrl =
+        import.meta.env.VITE_BASE_URL || "http://localhost:3000";
 
       const res = await fetch(`${apiBaseUrl}/api/form`, {
         method: "POST",
