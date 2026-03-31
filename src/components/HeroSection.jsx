@@ -4,6 +4,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 import { Button } from "./ui/button";
 import ShinyText from "./ShinyText";
 import VariableProximity from "./VariableProximity";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const heroRef = useRef(null);
@@ -11,6 +12,8 @@ const HeroSection = () => {
   const subRef = useRef(null);
   const ctaRef = useRef(null);
   const containerRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Set initial hidden state
@@ -96,17 +99,19 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button
+            onClick={() => navigate("/destinations")}
             size="bg"
             className="  font-semibold px-8 py-4 rounded-lg text-lg hover:opacity-90 transition-opacity"
           >
             Explore Destinations
           </Button>
-          <a
-            href="/contact"
+          <Button
+            onClick={() => navigate("/contact")}
+            size="bg"
             className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/30 text-primary-foreground font-body font-semibold px-8 py-4 rounded-lg text-lg hover:bg-primary-foreground/20 transition-colors"
           >
             Plan My Trip
-          </a>
+          </Button>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { allDestinations } from "@/lib/destinations";
@@ -11,6 +12,7 @@ const destinations = allDestinations.slice(0, 4);
 const FeaturedDestinations = () => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -89,6 +91,7 @@ const FeaturedDestinations = () => {
 
         <div className="text-center mt-12">
           <Button
+            onClick={() => navigate("/destinations")}
             size="bg"
             className="cursor-pointer font-body font-semibold px-8 py-3.5 rounded-lg inline-block hover:opacity-90 transition-opacity"
           >

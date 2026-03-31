@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import gsap from "gsap";
 import { Button } from "./ui/button";
@@ -6,6 +7,7 @@ import { Button } from "./ui/button";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (navRef.current) {
@@ -47,7 +49,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button
-            onClick={() => {}}
+            onClick={() => navigate("/planner")}
             size="md"
             className="cursor-pointer text-sm font-semibold px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
           >
@@ -78,6 +80,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button
+            onClick={() => navigate("/planner")}
             variant="outline"
             size="bg"
             className="block w-fit gradient-primary  font-body text-sm font-semibold px-5 py-2.5 rounded-lg text-center"
